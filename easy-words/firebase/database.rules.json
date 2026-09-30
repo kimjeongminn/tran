@@ -1,0 +1,16 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "public": {
+      "app": {
+        ".read": true,
+        ".validate": "newData.hasChildren(['v','enabled'])",
+        "v": { ".validate": "newData.isNumber() && newData.val() >= 1" },
+        "enabled": { ".validate": "newData.isBoolean()" },
+        "notice": { ".validate": "newData.isString() && newData.val().length <= 160" },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}
